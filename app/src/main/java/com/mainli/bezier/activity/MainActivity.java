@@ -38,7 +38,16 @@ public class MainActivity extends AppCompatActivity {
     public void btn6(View view) {
         startActivity(new Intent(this, CircleActivity.class));
     }
+
     public void btn7(View view) {
         startActivity(new Intent(this, Circle2HeartViewActivity.class));
+    }
+
+    public void btn8(View view) {
+        startActivity(new Intent(this, BezierPathAnimActivity.class));
+    }
+
+    public void btn9(View view) {
+        startActivity(new Intent(this, PathAnimActivity.class));
     }
 }

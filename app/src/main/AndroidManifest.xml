@@ -29,6 +29,10 @@
         </activity>
         <activity android:name=".activity.Circle2HeartViewActivity">
         </activity>
+        <activity android:name=".activity.BezierPathAnimActivity">
+        </activity>
+        <activity android:name=".activity.PathAnimActivity">
+        </activity>
     </application>
 
 </manifest>

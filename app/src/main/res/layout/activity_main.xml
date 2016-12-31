@@ -55,4 +55,19 @@
         android:layout_height="wrap_content"
         android:onClick="btn7"
         android:text="圆2心"/>
+
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btn8"
+        android:text="贝塞尔曲线轨迹动画1"/>
+
+    <Button
+        android:id="@+id/btn9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btn9"
+        android:text="贝塞尔曲线轨迹动画2"/>
+
 </LinearLayout>

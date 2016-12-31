@@ -12,6 +12,7 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.mainli.bezier.utils.AUXUtil;
 import com.mainli.bezier.utils.Bezier2CircleUtil;
 import com.mainli.bezier.utils.DrawTextVerticalHelp;
 
@@ -104,13 +105,13 @@ public class Circle2HeartView extends View {
             if (!scale.isRunning()) scale.start();
         }
 
-//        //辅助绘制
-//        for (int i = 0; i < circleTops.length; i++) {
-//            AUXUtil.drawAUXPoint(canvas, "顶点" + i, circleTops[i]);
-//        }
-//        for (int i = 0; i < circleFlag.length; i++) {
-//            AUXUtil.drawAUXPoint(canvas, "控制点" + i, circleFlag[i]);
-//        }
-//        AUXUtil.drawAUXPoint(canvas, "圆心", mC);
+        //辅助绘制
+        for (int i = 0; i < circleTops.length; i++) {
+            AUXUtil.drawAUXPoint(canvas, "顶点" + i, circleTops[i]);
+        }
+        for (int i = 0; i < circleFlag.length; i++) {
+            AUXUtil.drawAUXPoint(canvas, "控制点" + i, circleFlag[i]);
+        }
+        AUXUtil.drawAUXPoint(canvas, "圆心", mC);
     }
 }

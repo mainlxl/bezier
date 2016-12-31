@@ -36,6 +36,7 @@ public final class Bezier2CircleUtil {
 //-----------------------------------控制点计算-----------------------------------------------------
 
     public static PointF[] obtianFlagPoints(PointF[] tops, int r) {
+        if (tops.length != 4) throw new RuntimeException("tops length illegal should 4");
         float mDifference = r * C;        // 圆形的控制点与数据点的差值
         PointF[] points = new PointF[8];//圆的顶点坐标 顺序为顺时针从最上边开始
         points[0] = new PointF(tops[0].x + mDifference, tops[0].y);//右上控制点
@@ -62,10 +63,28 @@ public final class Bezier2CircleUtil {
      * @return path 路径
      */
     public static Path bezier3ToCircle(Path path, PointF[] circleTops, PointF[] circleFlag) {
+        if (circleTops.length != 4)
+            throw new RuntimeException("circleTops length illegal should 4");
+        if (circleFlag.length != 8)
+            throw new RuntimeException("circleFlag length illegal should 8");
         path.moveTo(circleTops[0].x, circleTops[0].y);
         for (int i = 0; i < 4; i++) {
             path.cubicTo(circleFlag[2 * i].x, circleFlag[2 * i].y, circleFlag[2 * i + 1].x, circleFlag[2 * i + 1].y, circleTops[(i + 1) % 4].x, circleTops[(i + 1) % 4].y);
         }
         return path;
+    }
+
+    //-----------------------------------修正控制点与定点绘制心形-----------------------------------------------------
+    public static void fixHeart(int r, PointF[] tops, PointF[] flags) {
+        tops[2].offset(0, 0.65f * r);//最上定点y向下偏移0.65
+        float v = 0.1f * r;
+        tops[1].offset(-v, 0);//左右定点向内偏移0.1
+        tops[3].offset(v, 0);
+        float v1 = 0.3f * r;
+        flags[0].offset(0, -v1);//最下两个控制点向内偏移0.3
+        flags[7].offset(0, -v1);
+        float v2 = 0.2f * r;//最下两个控制点紧邻两个终止点向内偏移0.2向下偏移0.15
+        flags[1].offset(-v2, -v1 / 2);
+        flags[6].offset(v2, -v1 / 2);
     }
 }
