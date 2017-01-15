@@ -16,8 +16,8 @@ import com.mainli.bezier.utils.Bezier2CircleUtil;
 
 /**
  * Created by Mainli on 2016/12/31.
+ * Path路径截取
  */
-
 public class PathAnimView extends View {
 
     private Path mPath;
@@ -44,8 +44,8 @@ public class PathAnimView extends View {
 
         int r = 100;
         PointF[] tops = Bezier2CircleUtil.obtianTopPoints(new PointF(200, 200), r);
-        PointF[] flags = Bezier2CircleUtil.obtianFlagPoints(tops, r);
-        Bezier2CircleUtil.fixHeart(r, tops, flags);
+        PointF[] flags = Bezier2CircleUtil.obtianFlagPoints(tops);
+        Bezier2CircleUtil.fixHeart(tops, flags);
         Path path = Bezier2CircleUtil.bezier3ToCircle(new Path(), tops, flags);
         mPathMeasure = new PathMeasure(path, true);
         final float length = mPathMeasure.getLength();
@@ -69,7 +69,7 @@ public class PathAnimView extends View {
         super.onDraw(canvas);
         mPath.reset();
         mPath.lineTo(0, 0);//解决硬件加速bug 不添加getSegment失效
-        mPathMeasure.getSegment(start, end, mPath, true);
+        mPathMeasure.getSegment(start, end, mPath, true);//截取路径
         canvas.drawPath(mPath, mPaint);
     }
 }

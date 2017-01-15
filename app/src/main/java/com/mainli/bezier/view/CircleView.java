@@ -66,7 +66,7 @@ public class CircleView extends View {
         mHeight = h;
         mC = new PointF(mWitch / 2, mHeight / 2);
         circleTops = Bezier2CircleUtil.obtianTopPoints(mC, r);
-        circleFlag = Bezier2CircleUtil.obtianFlagPoints(circleTops, r);
+        circleFlag = Bezier2CircleUtil.obtianFlagPoints(circleTops);
         mPath = Bezier2CircleUtil.bezier3ToCircle(new Path(), circleTops, circleFlag);
     }
 

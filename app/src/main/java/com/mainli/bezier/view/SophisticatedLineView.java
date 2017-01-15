@@ -45,6 +45,7 @@ public class SophisticatedLineView extends View {
         super.onDraw(canvas);
         canvas.drawPath(mPath, mPaint);
     }
+
     private PointF mLastPoint;
 
     @Override
@@ -57,7 +58,7 @@ public class SophisticatedLineView extends View {
             case MotionEvent.ACTION_MOVE:
                 float x = event.getX();
                 float y = event.getY();
-                mPath.quadTo(mLastPoint.x,mLastPoint.y,(x + mLastPoint.x) / 2, (y + mLastPoint.y) / 2);
+                mPath.quadTo(mLastPoint.x, mLastPoint.y, (x + mLastPoint.x) / 2, (y + mLastPoint.y) / 2);
                 mLastPoint.set(event.getX(), event.getY());
                 invalidate();
                 break;
