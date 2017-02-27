@@ -9,11 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activity.Bezier2Activity">
         </activity>
@@ -32,6 +27,13 @@
         <activity android:name=".activity.BezierPathAnimActivity">
         </activity>
         <activity android:name=".activity.PathAnimActivity">
+        </activity>
+        <activity android:name=".activity.FlyHeartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 
